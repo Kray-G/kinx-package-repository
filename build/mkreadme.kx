@@ -1,0 +1,40 @@
+
+if (!File.exists("README.md")) {
+    System.println("\"README.md\" file not found.");
+    return 1;
+}
+if (!File.exists("packages") || !File.isDirectory("packages")) {
+    System.println("\"packages\" directory does not found.");
+    return 1;
+}
+
+var maintopic = "This is a central repository of Kinx Packages. If you want to add a package, please issue a pull request to add a JSON file of metadata under the `packages` folder.";
+var packagelist = "Here are published packages. Packages are indexed by alphabetical.";
+var license = "# License\n\nThis repository is published under MIT License. For each package, follow the license of the package.";
+
+File.open("README.md", File.WRITE) { &(f)
+    var info = {};
+    Directory.walk("packages") { &(file)
+        var key = file.stem().toLower();
+        var data = JSON.parse(File.load(file));
+        var index = key.subString(0, 1).toUpper();
+        info[index] ??= [];
+        info[index].push({ data, key });
+    };
+
+    f.println("> Note that this repository is under construction. Nothing is working so far.\n");
+    f.println("# Kinx Package Repository\n");
+    f.println(maintopic);
+    f.println("\n# Package List\n");
+    f.println(packagelist);
+    info.keySet().each { &(index)
+        f.println("\n## %{index}\n");
+        f.println("|Key|Short Description|License|");
+        f.println("|---|---|---|");
+        var list = info[index];
+        list.each { &({ key, data: { name, url, concept, description, license } })
+            f.println("|%s|**[%s](%s)** - *%s*<br/>%s|%s" % key % name % url % concept % description % license);
+        };
+    };
+    f.println(license);
+};
