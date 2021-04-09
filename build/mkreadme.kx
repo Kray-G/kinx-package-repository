@@ -12,16 +12,18 @@ var maintopic = "This is a central repository of Kinx Packages. If you want to a
 var packagelist = "Here are published packages. Packages are indexed by alphabetical.";
 var license = "# License\n\nThis repository is published under MIT License. For each package, follow the license of the package.";
 
-File.open("README.md", File.WRITE) { &(f)
-    var info = {};
-    Directory.walk("packages") { &(file)
-        var key = file.stem().toLower();
-        var data = JSON.parse(File.load(file));
-        var index = key.subString(0, 1).toUpper();
-        info[index] ??= [];
-        info[index].push({ data, key });
-    };
+var info = {};
+var packages = {};
+Directory.walk("packages") { &(file)
+    var key = file.stem().toLower();
+    var data = JSON.parse(File.load(file));
+    var index = key.subString(0, 1).toUpper();
+    info[index] ??= [];
+    info[index].push({ data, key });
+    packages[key] = data;
+};
 
+File.open("README.md", File.WRITE) { &(f)
     f.println("> Note that this repository is under construction. Nothing is working so far.\n");
     f.println("# Kinx Package Repository\n");
     f.println(maintopic);
@@ -37,4 +39,7 @@ File.open("README.md", File.WRITE) { &(f)
         };
     };
     f.println(license);
+};
+File.open("packages.json", File.WRITE) { &(f)
+    f.println(packages.toJsonString(true));
 };

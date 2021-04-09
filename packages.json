@@ -1,0 +1,10 @@
+{
+    "typesetting": {
+        "concept": "Small and Easy, but Beautiful Design.",
+        "description": "This is a very tiny typesetting system. It is for people who think that LaTex and CSS typesetting system is too huge and complex.",
+        "license": "MIT License",
+        "name": "Kinx Tiny Typesetting",
+        "url": "https://github.com/Kray-G/kinx-tiny-typesetting"
+    }
+}
+
