@@ -16,7 +16,7 @@ Here are published packages. Packages are indexed by alphabetical.
 
 |Key|Short Description|License|
 |---|---|---|
-|typesetting|**[Kinx Tiny Typesetting](https://github.com/Kray-G/kinx-tiny-typesetting)** - *Small and Easy, but Beautiful Design.*<br/>This is a very tiny typesetting system. It is for people who think that LaTex and CSS typesetting system is too huge and complex.|MIT License
+|typesetting|**[Kinx Tiny Typesetting](https://github.com/Kray-G/kinx-tiny-typesetting)** - *Small and Easy, but Beautiful Design.*<br/>This is a very tiny typesetting system. It is for people who think that LaTeX and CSS typesetting system is too huge and complex.|MIT License
 # License
 
 This repository is published under MIT License. For each package, follow the license of the package.
