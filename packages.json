@@ -1,4 +1,11 @@
 {
+    "kacc": {
+        "concept": "LALR(1) parser generator for Kinx.",
+        "description": "This an LALR(1) parser generator with a lexical analyzer. You can start developing a parser with a lexer very quickly.",
+        "license": "MIT License",
+        "name": "Kacc",
+        "url": "https://github.com/Kray-G/kacc"
+    },
     "typesetting": {
         "concept": "Small and Easy, but Beautiful Design.",
         "description": "This is a very tiny typesetting system. It is for people who think that LaTeX and CSS typesetting system is too huge and complex.",

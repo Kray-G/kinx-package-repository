@@ -1,0 +1,7 @@
+{
+    "name": "Kacc",
+    "url": "https://github.com/Kray-G/kacc",
+    "concept": "LALR(1) parser generator for Kinx.",
+    "description": "This an LALR(1) parser generator with a lexical analyzer. You can start developing a parser with a lexer very quickly.",
+    "license": "MIT License"
+}

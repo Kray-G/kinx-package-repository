@@ -35,11 +35,13 @@ File.open("README.md", File.WRITE) { &(f)
     f.println("\n# Package List\n");
     f.println(packagelist);
     info.keySet().each { &(index)
+        System.println("## %{index}");
         f.println("\n## %{index}\n");
         f.println("|Key|Short Description|License|");
         f.println("|---|---|---|");
         var list = info[index];
         list.each { &({ key, data: { name, url, concept, description, license } })
+            System.println("  => %{key} - %{name}");
             f.println("|%s|**[%s](%s)** - *%s*<br/>%s|%s" % key % name % url % concept % description % license);
         };
     };
